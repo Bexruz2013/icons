@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IconicCraft Pro — 1000+ Modern Vector Icon Library</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e5edff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 px-5 py-3 rounded-xl shadow-2xl border border-slate-700 dark:border-slate-300">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 dark:text-emerald-600"></i>
+        <span id="toast-message" class="text-sm font-medium">Copied to clipboard!</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 glass border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <a href="#" class="flex items-center gap-2.5 text-xl font-bold tracking-tight group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                    <i data-lucide="shapes" class="w-6 h-6"></i>
+                </div>
+                <span>Iconic<span class="text-blue-600 dark:text-blue-400">Craft</span> <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200 dark:border-blue-800">1000+ Pro</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-400">
+                <a href="#icons" class="px-3 py-2 rounded-lg hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition">Icons</a>
+                <a href="#categories" class="px-3 py-2 rounded-lg hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition">Categories</a>
+                <a href="#favorites" onclick="filterByFavorites()" class="px-3 py-2 rounded-lg hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i> Favorites (<span id="fav-count">0</span>)
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-400">
+                    <i data-lucide="moon" id="theme-icon-dark" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="sun" id="theme-icon-light" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <a href="https://github.com" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 transition shadow-md">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-16 md:pt-16 md:pb-20 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50 mb-6">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Over 1,000+ Modern Vector Icons Ready
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+                Search, Customize & Download <br><span class="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">1,000+ High-Quality Icons</span>
+            </h1>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <div class="relative flex items-center bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-2">
+                    <i data-lucide="search" class="w-6 h-6 text-slate-400 ml-3 mr-2"></i>
+                    <input type="text" id="search-input" placeholder="Search 1,000+ icons (e.g. 'user', 'arrow', 'file', 'code')... (Ctrl + K)" class="w-full bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder-slate-400 text-base py-2">
+                    <span class="hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 border border-slate-200 dark:border-slate-700 mr-2">Ctrl K</span>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12 pt-8 border-t border-slate-200/60 dark:border-slate-800/60 text-center">
+                <div><div class="text-2xl font-bold text-slate-900 dark:text-white" id="stat-count">1,000+</div><div class="text-xs text-slate-500 font-medium mt-1">Icons Available</div></div>
+                <div><div class="text-2xl font-bold text-slate-900 dark:text-white">12+</div><div class="text-xs text-slate-500 font-medium mt-1">Categories</div></div>
+                <div><div class="text-2xl font-bold text-slate-900 dark:text-white">SVG / PNG</div><div class="text-xs text-slate-500 font-medium mt-1">Formats</div></div>
+                <div><div class="text-2xl font-bold text-slate-900 dark:text-white">React / Vue</div><div class="text-xs text-slate-500 font-medium mt-1">Code Export</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN ICONS EXPLORER -->
+    <section id="icons" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+            <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none" id="category-pills">
+                <!-- Populated via JS -->
+            </div>
+            <div class="text-xs text-slate-500 font-medium self-end md:self-auto">
+                Showing <span id="visible-count" class="font-bold text-slate-900 dark:text-white">0</span> icons
+            </div>
+        </div>
+
+        <!-- Icons Grid -->
+        <div id="icons-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Pagination / Load More -->
+        <div id="load-more-container" class="mt-12 text-center hidden">
+            <button onclick="loadMoreIcons()" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl transition shadow-lg shadow-blue-500/20">
+                Load More Icons...
+            </button>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-20">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400">
+                <i data-lucide="search-x" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">No icons found</h3>
+            <p class="text-sm text-slate-500">Try searching for something else like "arrow", "file", "user", "shopping".</p>
+        </div>
+    </section>
+
+    <!-- MODAL & CUSTOMIZER -->
+    <div id="icon-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-4xl w-full overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col md:flex-row max-h-[90vh]">
+            
+            <div class="p-8 bg-slate-50 dark:bg-slate-950/50 flex-1 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 relative">
+                <button onclick="closeModal()" class="absolute top-4 left-4 p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                
+                <div id="modal-preview-box" class="w-48 h-48 rounded-2xl flex items-center justify-center border border-slate-200/50 dark:border-slate-800/50 mb-6 shadow-inner">
+                    <div id="modal-icon-container" class="transition-transform duration-200"></div>
+                </div>
+
+                <h2 id="modal-icon-title" class="text-2xl font-bold text-slate-900 dark:text-white capitalize mb-1">Icon Name</h2>
+                <span id="modal-icon-category" class="text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-900/50">Category</span>
+            </div>
+
+            <div class="p-6 md:p-8 flex-1 overflow-y-auto space-y-6">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-3">Customize Icon</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs font-medium text-slate-500 mb-1">
+                            <span>Size</span><span id="size-val">48px</span>
+                        </div>
+                        <input type="range" id="input-size" min="16" max="120" value="48" class="w-full accent-blue-600">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1">Icon Color</label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="input-color" value="#3b82f6" class="w-9 h-9 rounded-lg cursor-pointer bg-transparent">
+                                <input type="text" id="input-color-text" value="#3b82f6" class="w-full text-xs p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1">Background</label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="input-bg" value="#ffffff" class="w-9 h-9 rounded-lg cursor-pointer bg-transparent">
+                                <input type="text" id="input-bg-text" value="Transparent" class="w-full text-xs p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-medium text-slate-500 mb-1">
+                                <span>Rotate</span><span id="rotate-val">0°</span>
+                            </div>
+                            <input type="range" id="input-rotate" min="0" max="360" value="0" class="w-full accent-blue-600">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-medium text-slate-500 mb-1">
+                                <span>Stroke Width</span><span id="stroke-val">2px</span>
+                            </div>
+                            <input type="range" id="input-stroke" min="1" max="4" step="0.5" value="2" class="w-full accent-blue-600">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <div class="flex border-b border-slate-200 dark:border-slate-800 gap-4 mb-3 text-sm font-semibold">
+                        <button onclick="switchTab('svg')" class="tab-btn active text-blue-600 border-b-2 border-blue-600 pb-1">SVG</button>
+                        <button onclick="switchTab('html')" class="tab-btn text-slate-400 hover:text-slate-600 pb-1">HTML</button>
+                        <button onclick="switchTab('react')" class="tab-btn text-slate-400 hover:text-slate-600 pb-1">React</button>
+                        <button onclick="switchTab('vue')" class="tab-btn text-slate-400 hover:text-slate-600 pb-1">Vue</button>
+                    </div>
+
+                    <div class="relative group">
+                        <pre id="code-output" class="bg-slate-950 text-slate-200 p-3.5 rounded-xl text-xs font-mono overflow-x-auto max-h-28 whitespace-pre-wrap border border-slate-800"></pre>
+                        <button onclick="copyCurrentCode()" class="absolute top-2 right-2 px-2.5 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium shadow">Copy</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <button onclick="downloadSVG()" class="w-full py-2.5 px-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-xl font-semibold text-xs hover:bg-slate-800 dark:hover:bg-slate-200 transition flex items-center justify-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i> Download SVG
+                    </button>
+                    <button onclick="downloadPNG()" class="w-full py-2.5 px-4 bg-blue-600 text-white rounded-xl font-semibold text-xs hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                        <i data-lucide="image" class="w-4 h-4"></i> Download PNG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 text-lg font-bold">
+                <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                    <i data-lucide="shapes" class="w-4 h-4"></i>
+                </div>
+                <span>IconicCraft Pro</span>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 IconicCraft. Built for high-performance apps with 1,000+ vector icons.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT ENGINE (1000+ ICON GENERATOR & LOGIC) -->
+    <script>
+        // --- COMPLETE 1000+ ICON DATASET GENERATOR & MAPPING ---
+        const baseIconNames = Object.keys(lucide.icons || {});
+        
+        // Categorization rules for 1000+ Lucide icons
+        function getCategoryForIcon(name) {
+            if (name.includes('arrow') || name.includes('chevron') || name.includes('corner') || name.includes('move')) return 'Arrows & Nav';
+            if (name.includes('user') || name.includes('users') || name.includes('contact') || name.includes('person')) return 'People';
+            if (name.includes('file') || name.includes('folder') || name.includes('document') || name.includes('clipboard')) return 'Files & Docs';
+            if (name.includes('mail') || name.includes('message') || name.includes('phone') || name.includes('send') || name.includes('bell')) return 'Communication';
+            if (name.includes('code') || name.includes('terminal') || name.includes('git') || name.includes('database') || name.includes('cpu')) return 'Development';
+            if (name.includes('shopping') || name.includes('card') || name.includes('dollar') || name.includes('wallet') || name.includes('cart') || name.includes('bag')) return 'Commerce';
+            if (name.includes('image') || name.includes('camera') || name.includes('video') || name.includes('music') || name.includes('play')) return 'Media';
+            if (name.includes('map') || name.includes('pin') || name.includes('globe') || name.includes('compass') || name.includes('navigation')) return 'Travel';
+            if (name.includes('sun') || name.includes('moon') || name.includes('cloud') || name.includes('zap') || name.includes('flame') || name.includes('tree')) return 'Nature';
+            if (name.includes('heart') || name.includes('activity') || name.includes('pill') || name.includes('stethoscope')) return 'Health';
+            if (name.includes('settings') || name.includes('filter') || name.includes('sliders') || name.includes('grid') || name.includes('menu') || name.includes('search')) return 'UI Elements';
+            return 'General';
+        }
+
+        const iconsData = baseIconNames.map(name => ({
+            name: name,
+            category: getCategoryForIcon(name)
+        }));
+
+        // APP STATE
+        let currentSearch = '';
+        let currentCategory = 'All';
+        let selectedIcon = null;
+        let activeTab = 'svg';
+        let pageLimit = 60; // Infinite scroll chunking for smooth loading
+        let favorites = JSON.parse(localStorage.getItem('iconic_favorites') || '[]');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategoryPills();
+            renderIcons();
+            initTheme();
+            setupCustomizerListeners();
+            setupKeyboardShortcuts();
+            
+            document.getElementById('stat-count').textContent = iconsData.length + '+';
+            updateFavCount();
+        });
+
+        function updateFavCount() {
+            document.getElementById('fav-count').textContent = favorites.length;
+        }
+
+        // RENDER CATEGORY PILLS
+        function renderCategoryPills() {
+            const categories = ['All', 'Favorites', ...new Set(iconsData.map(i => i.category))];
+            const container = document.getElementById('category-pills');
+            
+            container.innerHTML = categories.map(cat => `
+                <button onclick="filterCategory('${cat}')" 
+                    class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap border transition ${cat === currentCategory ? 'bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-500/20' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700'}">
+                    ${cat} ${cat === 'Favorites' ? `(${favorites.length})` : ''}
+                </button>
+            `).join('');
+        }
+
+        // RENDER ICONS GRID WITH LAZY PAGINATION
+        function renderIcons() {
+            const grid = document.getElementById('icons-grid');
+            const emptyState = document.getElementById('empty-state');
+            const loadMoreBtn = document.getElementById('load-more-container');
+
+            const filtered = iconsData.filter(icon => {
+                const matchesSearch = icon.name.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                                      icon.category.toLowerCase().includes(currentSearch.toLowerCase());
+                const matchesCategory = currentCategory === 'All' || 
+                                        (currentCategory === 'Favorites' ? favorites.includes(icon.name) : icon.category === currentCategory);
+
+                return matchesSearch && matchesCategory;
+            });
+
+            document.getElementById('visible-count').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                loadMoreBtn.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            const paginated = filtered.slice(0, pageLimit);
+
+            if (filtered.length > pageLimit) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+
+            grid.innerHTML = paginated.map(icon => {
+                const isFav = favorites.includes(icon.name);
+                return `
+                <div class="group relative bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 hover:border-blue-500 dark:hover:border-blue-500 rounded-2xl p-4 flex flex-col items-center justify-between transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+                    
+                    <button onclick="toggleFavorite(event, '${icon.name}')" class="absolute top-2.5 right-2.5 p-1.5 rounded-lg text-slate-300 dark:text-slate-600 hover:text-rose-500 dark:hover:text-rose-500 transition">
+                        <i data-lucide="heart" class="w-4 h-4 ${isFav ? 'text-rose-500 fill-rose-500' : ''}"></i>
+                    </button>
+
+                    <div onclick="openModal('${icon.name}')" class="w-full flex-1 flex flex-col items-center justify-center py-3 cursor-pointer">
+                        <i data-lucide="${icon.name}" class="w-7 h-7 text-slate-700 dark:text-slate-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-all"></i>
+                        <span class="text-xs font-semibold text-slate-800 dark:text-slate-200 mt-3 capitalize text-center truncate w-full">${icon.name.replace(/-/g, ' ')}</span>
+                    </div>
+
+                    <div class="w-full grid grid-cols-2 gap-1 pt-2 border-t border-slate-100 dark:border-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <button onclick="quickCopySVG(event, '${icon.name}')" class="py-1 text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 rounded-lg transition text-slate-600 dark:text-slate-300">
+                            SVG
+                        </button>
+                        <button onclick="openModal('${icon.name}')" class="py-1 text-[10px] font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            `}).join('');
+
+            lucide.createIcons();
+        }
+
+        function loadMoreIcons() {
+            pageLimit += 60;
+            renderIcons();
+        }
+
+        // SEARCH & FILTERS
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            pageLimit = 60;
+            renderIcons();
+        });
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            pageLimit = 60;
+            renderCategoryPills();
+            renderIcons();
+        }
+
+        function filterByFavorites() {
+            filterCategory('Favorites');
+        }
+
+        // FAVORITES SYSTEM
+        function toggleFavorite(e, name) {
+            e.stopPropagation();
+            if (favorites.includes(name)) {
+                favorites = favorites.filter(f => f !== name);
+                showToast('Removed from favorites');
+            } else {
+                favorites.push(name);
+                showToast('Added to favorites!');
+            }
+            localStorage.setItem('iconic_favorites', JSON.stringify(favorites));
+            updateFavCount();
+            renderCategoryPills();
+            renderIcons();
+        }
+
+        // MODAL & CUSTOMIZER
+        function openModal(iconName) {
+            selectedIcon = iconsData.find(i => i.name === iconName);
+            if (!selectedIcon) return;
+
+            document.getElementById('modal-icon-title').textContent = selectedIcon.name.replace(/-/g, ' ');
+            document.getElementById('modal-icon-category').textContent = selectedIcon.category;
+
+            document.getElementById('input-size').value = 48;
+            document.getElementById('input-color').value = '#3b82f6';
+            document.getElementById('input-color-text').value = '#3b82f6';
+            document.getElementById('input-bg').value = '#ffffff';
+            document.getElementById('input-bg-text').value = 'Transparent';
+            document.getElementById('input-rotate').value = 0;
+            document.getElementById('input-stroke').value = 2;
+
+            updateCustomizer();
+
+            const modal = document.getElementById('icon-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.remove('scale-95');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('icon-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.add('scale-95');
+        }
+
+        function setupCustomizerListeners() {
+            ['size', 'color', 'bg', 'rotate', 'stroke'].forEach(id => {
+                const el = document.getElementById(`input-${id}`);
+                if (el) el.addEventListener('input', updateCustomizer);
+            });
+
+            document.getElementById('input-color').addEventListener('input', (e) => {
+                document.getElementById('input-color-text').value = e.target.value;
+            });
+            document.getElementById('input-bg').addEventListener('input', (e) => {
+                document.getElementById('input-bg-text').value = e.target.value;
+            });
+        }
+
+        function updateCustomizer() {
+            if (!selectedIcon) return;
+
+            const size = document.getElementById('input-size').value;
+            const color = document.getElementById('input-color').value;
+            const bg = document.getElementById('input-bg').value;
+            const rotate = document.getElementById('input-rotate').value;
+            const stroke = document.getElementById('input-stroke').value;
+
+            document.getElementById('size-val').textContent = size + 'px';
+            document.getElementById('rotate-val').textContent = rotate + '°';
+            document.getElementById('stroke-val').textContent = stroke + 'px';
+
+            const previewBox = document.getElementById('modal-preview-box');
+            const container = document.getElementById('modal-icon-container');
+
+            previewBox.style.backgroundColor = document.getElementById('input-bg-text').value === 'Transparent' ? 'transparent' : bg;
+
+            container.innerHTML = `<i data-lucide="${selectedIcon.name}"></i>`;
+            container.style.transform = `rotate(${rotate}deg)`;
+
+            lucide.createIcons();
+
+            const svg = container.querySelector('svg');
+            if (svg) {
+                svg.setAttribute('width', size);
+                svg.setAttribute('height', size);
+                svg.setAttribute('stroke', color);
+                svg.setAttribute('stroke-width', stroke);
+            }
+
+            generateCodeOutput();
+        }
+
+        // CODE GENERATOR
+        function switchTab(tab) {
+            activeTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                btn.classList.add('text-slate-400');
+            });
+            event.target.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+            generateCodeOutput();
+        }
+
+        function generateCodeOutput() {
+            const container = document.getElementById('modal-icon-container');
+            const svgEl = container.querySelector('svg');
+            const codeOutput = document.getElementById('code-output');
+
+            if (!svgEl) return;
+
+            const svgString = svgEl.outerHTML;
+
+            if (activeTab === 'svg') {
+                codeOutput.textContent = svgString;
+            } else if (activeTab === 'html') {
+                codeOutput.textContent = `<i data-lucide="${selectedIcon.name}"></i>\n<script src="https://unpkg.com/lucide@latest"><\/script>\n<script>lucide.createIcons();<\/script>`;
+            } else if (activeTab === 'react') {
+                const componentName = selectedIcon.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
+                codeOutput.textContent = `import { ${componentName} } from 'lucide-react';\n\nexport const MyComponent = () => (\n  <${componentName} size={${document.getElementById('input-size').value}} color="${document.getElementById('input-color').value}" />\n);`;
+            } else if (activeTab === 'vue') {
+                const componentName = selectedIcon.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
+                codeOutput.textContent = `<template>\n  <${componentName} :size="${document.getElementById('input-size').value}" color="${document.getElementById('input-color').value}" />\n</template>\n\n<script setup>\nimport { ${componentName} } from 'lucide-vue-next';\n<\/script>`;
+            }
+        }
+
+        // COPY & DOWNLOAD
+        function copyCurrentCode() {
+            const code = document.getElementById('code-output').textContent;
+            navigator.clipboard.writeText(code);
+            showToast('Code copied to clipboard!');
+        }
+
+        function quickCopySVG(e, name) {
+            e.stopPropagation();
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = `<i data-lucide="${name}"></i>`;
+            document.body.appendChild(tempDiv);
+            lucide.createIcons();
+            const svg = tempDiv.querySelector('svg').outerHTML;
+            document.body.removeChild(tempDiv);
+
+            navigator.clipboard.writeText(svg);
+            showToast('SVG copied to clipboard!');
+        }
+
+        function downloadSVG() {
+            const container = document.getElementById('modal-icon-container');
+            const svgData = container.querySelector('svg').outerHTML;
+            const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${selectedIcon.name}.svg`;
+            link.click();
+            showToast('SVG downloaded!');
+        }
+
+        function downloadPNG() {
+            const container = document.getElementById('modal-icon-container');
+            const svgEl = container.querySelector('svg');
+            const svgData = new XMLSerializer().serializeToString(svgEl);
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+
+            const size = document.getElementById('input-size').value;
+            canvas.width = size;
+            canvas.height = size;
+
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0);
+                const pngUrl = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.href = pngUrl;
+                link.download = `${selectedIcon.name}.png`;
+                link.click();
+                showToast('PNG downloaded!');
+            };
+
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+
+        // TOAST NOTIFICATION
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // THEME TOGGLE
+        function initTheme() {
+            document.getElementById('theme-toggle').addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+        }
+
+        // KEYBOARD SHORTCUTS
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.getElementById('search-input').focus();
+                }
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
